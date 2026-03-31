@@ -1,0 +1,41 @@
+# Khushi_31-03-26_Day-10
+
+## Problem Name
+
+Middle of the Linked List
+
+## Problem Link
+
+https://leetcode.com/problems/middle-of-the-linked-list/
+
+## Approach
+
+* Used two-pointer technique:
+
+  * `slow` moves one step
+  * `fast` moves two steps
+* When `fast` reaches the end, `slow` will be at the middle
+* Returned `slow` as the middle node
+
+## Complexity
+
+* Time Complexity: O(n)
+* Space Complexity: O(1)
+
+## Code (C++)
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return slow;
+    }
+};
+
+
